@@ -1,0 +1,21 @@
+// *
+// * Variables
+// * Define values for common and globally used elements
+// *
+
+// Typography
+$body-font:                     "Source Sans Pro", sans-serif;
+$title-font:                    "Source Sans Pro", sans-serif;
+
+$pad:                           24px;
+
+// Paths
+$img:                           '/images/';
+$sprite:                        '../img/sprite.png';
+$fonts:                         '../fonts/';
+
+// Breakpoints
+$bp-xl:                         1480px;
+$bp-l:                          1180px;
+$bp-m:                          980px;
+$bp-s:                          640px;

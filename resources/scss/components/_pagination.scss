@@ -1,0 +1,38 @@
+// Laravel pagination
+@use "../variables/global";
+@use "../variables/colors";
+@use "../mixins";
+@use "sass:math";
+
+.pagination {
+    border-top: 1px solid colors.$alum;
+ 
+    nav {
+        & > div {
+            display: flex;
+            justify-content: flex-end;
+
+            span,
+            a {
+                display: block;
+                padding: 12px;
+            }
+        }
+    }
+}
+
+// @include mixins.respond(lg) {
+
+// }
+
+// @include mixins.respond(xl) {
+
+// }
+
+// @include mixins.respond(md) {
+
+// }
+
+// @include mixins.respond(sm) {
+
+// }

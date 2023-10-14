@@ -1,0 +1,47 @@
+// Element name
+@use "../variables/global";
+@use "../variables/colors";
+@use "../mixins";
+@use "sass:math";
+
+.badge {
+    display: inline-block;
+    padding: 4px 8px;
+    border-radius: 2px;
+    font-size: 0.75em;
+    background-color: colors.$snow;
+
+    &.badge-green,
+    &.badge-LOW {
+        background-color: colors.$teal;
+        color: colors.$white;
+    }
+    
+    &.badge-yellow,
+    &.badge-2 {
+        background-color: colors.$tang;
+        color: colors.$black;
+    }
+
+    &.badge-red,
+    &.badge-HIGH {
+        background-color: colors.$brick;
+        color: colors.$white;
+    }
+}
+
+// @include mixins.respond(lg) {
+
+// }
+
+// @include mixins.respond(xl) {
+
+// }
+
+// @include mixins.respond(md) {
+
+// }
+
+// @include mixins.respond(sm) {
+
+// }

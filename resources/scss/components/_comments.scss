@@ -1,0 +1,45 @@
+// Component name
+@use "../variables/global";
+@use "../variables/colors";
+@use "../mixins";
+@use "sass:math";
+
+.comment {
+    padding: math.div(global.$pad, 2);
+    background-color: colors.$snow;
+    border-radius: 6px;
+    margin-bottom: math.div(global.$pad, 2);
+
+    &:last-child {
+        margin-bottom: 0;
+    }
+}
+
+.author-admin {
+    color: colors.$brick;
+}
+
+.comment-meta {
+    font-size: 0.9em;
+    text-align: right;
+    opacity: 0.75;
+}
+
+@include mixins.respond(lg) {
+    .comment {
+        padding: global.$pad global.$pad math.div(global.$pad, 2) global.$pad;
+        margin-bottom: global.$pad;
+    }
+}
+
+// @include mixins.respond(xl) {
+
+// }
+
+// @include mixins.respond(md) {
+
+// }
+
+// @include mixins.respond(sm) {
+
+// }

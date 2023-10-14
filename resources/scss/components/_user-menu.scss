@@ -1,0 +1,112 @@
+// Component name
+@use "../variables/global";
+@use "../variables/colors";
+@use "../mixins";
+@use "sass:math";
+
+.user-menu {
+    position: relative;
+}
+
+.user-menu-button {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    appearance: none;
+    border: 0;
+    background: transparent;
+    font-size: 1em;
+    font-family: global.$body-font;
+    color: colors.$marine;
+    cursor: pointer;
+
+    .user-menu-avatar {
+        margin-left: math.div(global.$pad, 2);
+        overflow: hidden;
+        border-radius: 18px;
+        height: 36px;
+        width: 36px;
+        box-shadow: 0 0 0 3px rgba(colors.$tang, 0.25);
+
+        img {
+            width: 36px;
+            height: 36px;
+            display: block;
+            object-fit: cover;
+        }
+    }
+
+    .user-menu-name {
+        i {
+            font-size: 0.8em;
+        }
+    }
+}
+
+.user-menu-list {
+    position: absolute;
+    top: 100%;
+    right: 0;
+    width: 160px;
+    background-color: colors.$white;
+    box-shadow: 1px 1px 3px rgba(colors.$alum, 0.5);
+    overflow: hidden;
+    border-radius: 4px;
+    margin: 0;
+    padding: 0 math.div(global.$pad, 2);
+    list-style: none;
+    transform: translateY(-20px);
+    opacity: 0;
+    pointer-events: none;
+    transition: all 0.25s ease;
+
+    li {
+        margin: 0;
+        padding: 0;
+    }
+
+    .user-menu-out {
+        padding-top: 12px;
+
+        button {
+            width: 100%;
+        }
+    }
+
+    a {
+        display: block;
+        padding: math.div(global.$pad, 4) math.div(global.$pad, 2);
+        text-decoration: none;
+        border-radius: 3px;
+        color: colors.$teal;
+        line-height: 1.5;
+        cursor: pointer;
+
+        &:hover {
+            background-color: colors.$snow;
+        }
+    }
+
+    &.user-menu-open {
+        padding: math.div(global.$pad, 2);
+        opacity: 1;
+        transform: translateY(0);
+        pointer-events: all;
+    }
+}
+
+// @include mixins.respond(lg) {
+
+// }
+
+// @include mixins.respond(xl) {
+
+// }
+
+// @include mixins.respond(md) {
+
+// }
+
+// @include mixins.respond(sm) {
+
+// }

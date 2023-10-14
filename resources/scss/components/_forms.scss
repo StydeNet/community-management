@@ -1,0 +1,402 @@
+// Form
+@use "../variables/global";
+@use "../variables/colors";
+@use "../mixins";
+@use "sass:math";
+
+fieldset {
+    margin: 0;
+    margin-bottom: global.$pad;
+    border: 0;
+    padding: 0;
+    position: relative;
+    border-top: 1px dotted colors.$alum;
+
+    &:last-child {
+        margin-bottom: 0;
+    }
+
+    legend {
+        font-size: 1em;
+        padding: 8px 12px 12px 0;
+        margin-bottom: 12px;
+        font-size: 1em;
+        border-radius: 0;
+        font-weight: bold;
+        color: colors.$steel;
+        background-color: colors.$white;
+    }
+}
+
+.field {
+    padding: 0 0 math.div(global.$pad, 2) 0;
+    margin-bottom: math.div(global.$pad, 2);
+}
+
+.field-submit {
+    padding: math.div(global.$pad, 2) 0 0 0;
+    margin-top: math.div(global.$pad, 2);
+    margin-bottom: 0;
+}
+
+label {
+    display: block;
+    padding: 0 0 4px 0;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="date"],
+input[type="url"],
+input[type="email"],
+input[type="number"],
+input[type="url"],
+input[type="password"],
+textarea {
+    display: block;
+    padding: 12px;
+    font-family: global.$body-font;
+    background-color: colors.$white;
+    border: 1px solid colors.$steel;
+    border-radius: 6px;
+    box-sizing: border-box;
+    width: 100%;
+    outline: 0;
+    font-size: 1em;
+
+    &:focus {
+        box-shadow: 0 0 0 3px rgba(colors.$tang, 0.75);
+    }
+}
+
+textarea {
+    resize: vertical;
+}
+
+select {
+    display: block;
+    appearance: none;
+    padding: 12px;
+    font-family: global.$body-font;
+    border: 1px solid colors.$steel;
+    border-radius: 6px;
+    box-sizing: border-box;
+    width: 100%;
+    outline: 0;
+    font-size: 1em;
+    background: {
+        color: colors.$white;
+        image: url('#{global.$img}icon-chevron-down.svg');
+        size: 14px auto;
+        position: right 12px top 50%;
+        repeat: no-repeat;
+    }
+
+    &:focus {
+        box-shadow: 0 0 0 3px rgba(colors.$tang, 0.75);
+    }
+}
+
+.field-file-wrap {
+    display: flex;
+
+    img {
+        height: 104px;
+        width: auto;
+        margin-right: 24px;
+        flex: 0 0 auto;
+    }
+
+    .field-file {
+        flex: 1 0 auto;
+    }
+}
+
+input[type="file"] {
+    display: block;
+    width: 100%;
+    font-family: global.$body-font;
+    font-size: 1em;
+}
+
+input[type="file"]::file-selector-button {
+    display: block;
+    width: 100%;
+    height: 72px;
+    border: 2px dashed colors.$alum;
+    padding: global.$pad;
+    border-radius: 4px;
+    background-color: colors.$snow;
+    transition: 1s;
+    box-sizing: border-box;
+    margin-bottom: 12px;
+    font-family: global.$body-font;
+    font-size: 1em;
+    font-weight: bold;
+}
+
+input[type="file"]::-ms-browse:hover {
+    background-color: rgba(colors.$tang, 0.15);
+    border-color: colors.$tang;
+}
+
+input[type="file"]::-webkit-file-upload-button:hover {
+    background-color: rgba(colors.$tang, 0.15);
+    border-color: colors.$tang;
+}
+
+input[type="file"]::file-selector-button:hover {
+    background-color: rgba(colors.$tang, 0.15);
+    border-color: colors.$tang;
+}
+
+.field-optionset {
+    .optionset {
+        list-style: none;
+        margin: 0;
+        padding: 12px 0;
+        display: flex;
+
+        li {
+            margin-right: 48px;
+        }
+
+        label {
+            position: relative;
+            padding-left: 36px;
+        }
+
+        input[type="radio"] {
+            position: absolute;
+            margin: 0;
+            left: 0;
+            top: 50%;
+            transform: translateY(-54%);
+            appearance: none;
+            display: block;
+            width: 24px;
+            height: 24px;
+            padding: 0;
+            border: 2px solid colors.$tang;
+            background-color: colors.$white;
+            border-radius: 14px;
+            cursor: pointer;
+
+            &:checked {
+                border-color: colors.$black;
+                background-color: colors.$tang;
+
+                &::after {
+                    content: '';
+                    position: absolute;
+                    display: block;
+                    left: 4px;
+                    top: 4px;
+                    background-color: colors.$black;
+                    width: 12px;
+                    height: 12px;
+                    border-radius: 6px;
+                }
+            }
+        }
+    }
+}
+
+.field-checkbox {
+    & > label {
+        font-weight: bold;
+    }
+
+    .checkbox-list {
+        list-style: none;
+        margin: 0;
+        padding: 12px 0;
+
+        label {
+            position: relative;
+            padding-left: 36px;
+        }
+
+        input[type="checkbox"] {
+            position: absolute;
+            margin: 0;
+            left: 0;
+            top: 50%;
+            transform: translateY(-54%);
+            appearance: none;
+            display: block;
+            width: 24px;
+            height: 24px;
+            padding: 0;
+            border: 2px solid colors.$tang;
+            background-color: colors.$white;
+            border-radius: 4px;
+            cursor: pointer;
+
+            &:checked {
+                border-color: colors.$black;
+                background-color: colors.$tang;
+
+                &::after {
+                    content: '';
+                    position: absolute;
+                    display: block;
+                    left: 6px;
+                    top: 2px;
+                    border-right: 3px solid colors.$black;
+                    border-bottom: 3px solid colors.$black;
+                    width: 5px;
+                    height: 10px;
+                    transform: rotate(45deg);
+                }
+            }
+        }
+    }
+}
+
+.field-submit {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: math.div(global.$pad, 2) 0 0 0;
+}
+
+.alert {
+    padding: 6px 12px;
+    margin: 2px 0 12px 0;
+    border-radius: 4px;
+    font-weight: bold;
+
+    &.alert-error {
+        color: colors.$brick;
+        background-color: mix(colors.$white, colors.$brick, 90%);
+    }
+
+    &.alert-warning {
+        color: colors.$tang;
+        background-color: mix(colors.$white, colors.$tang, 90%);
+    }
+
+    &.alert-success {
+        color: colors.$teal;
+        background-color: mix(colors.$white, colors.$teal, 90%);
+    }
+}
+
+.form-errors {
+    padding: 12px;
+    background-color: mix(colors.$white, colors.$brick, 90%);
+    margin: 0 0 12px 0;
+    border: 1px solid colors.$brick;
+    border-radius: 4px;
+
+    .form-errors-title {
+        font-weight: bold;
+        margin-bottom: 12px;
+    }
+
+    .form-errors-list {
+        margin: 0;
+    }
+}
+
+.field-repeatable {
+    position: relative;
+    border: 1px dotted colors.$alum;
+    border-radius: 6px;
+    padding: math.div(global.$pad, 2) math.div(global.$pad, 2) 1px math.div(global.$pad, 2);
+    margin-bottom: math.div(global.$pad, 2);
+    background-color: colors.$snow;
+}
+
+.btn-remove-item {
+    display: inline-block;
+    appearance: none;
+    background-color: transparent;
+    background-image: none;
+    padding: 8px;
+    margin: 0;
+    border: 0;
+    color: colors.$tang;
+    cursor: pointer;
+}
+
+.btn-add-item {
+    position: absolute;
+    right: -18px;
+    top: 50%;
+    display: inline-block;
+    appearance: none;
+    background-color: colors.$white;
+    border: 1px solid colors.$alum;
+    background-image: none;
+    padding: 0;
+    border-radius: 18px;
+    font-size: 24px;
+    height: 36px;
+    line-height: 37px;
+    width: 36px;
+    margin: -18px 0 0 0;
+    color: colors.$tang;
+    cursor: pointer;
+
+    &:hover {
+        background-color: colors.$tang;
+        color: colors.$white;
+    }
+}
+
+@include mixins.respond(lg) {
+    .field-group {
+        display: flex;
+        align-items: flex-start;
+        justify-content: space-between;
+
+        .field {
+            margin-left: 12px;
+            margin-right: 12px;
+            flex-grow: 1;
+            flex-shrink: 1;
+            flex-basis: 48%;
+
+            &.field-small {
+                flex-basis: 20%;
+            }
+
+            &:first-child {
+                margin-left: 0;
+            }
+
+            &:last-child {
+                margin-right: 0;
+            }
+        }
+    }
+}
+
+// @include mixins.respond(xl) {
+
+// }
+
+// @include mixins.respond(md) {
+
+// }
+
+@include mixins.respond(sm) {
+    .field-file-wrap {
+        display: flex;
+        flex-direction: column;
+
+        img {
+            height: auto;
+            width: 100%;
+            margin-right: 0;
+            margin-bottom: 24px;
+            flex: 0 0 auto;
+        }
+
+        .field-file {
+            flex: 1 0 auto;
+        }
+    }
+}

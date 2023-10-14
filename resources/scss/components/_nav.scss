@@ -1,0 +1,190 @@
+// Main navigation
+
+@use "../variables/global";
+@use "../variables/colors";
+@use "../mixins";
+@use "sass:math";
+
+.main-nav {
+    position: fixed;
+    box-sizing: border-box;
+    top: 0;
+    left: 0;
+    width: 220px;
+    height: 100%;
+    padding: 60px 0 global.$pad 0;
+    background-color: colors.$marine;
+    transition: all 0.25s ease;
+    z-index: 1000;
+    box-sizing: border-box;
+}
+
+.side-head {
+    background-color: mix(colors.$black, colors.$marine, 40%);
+    height: 60px;
+    box-sizing: border-box;
+    padding: math.div(global.$pad, 2);
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 220px;
+
+    .logo {
+        color: colors.$white;
+        text-decoration: none;
+        font-weight: 600;
+        font-size: 1.2em;
+    }
+}
+
+.menu-toggle {
+    position: absolute;
+    z-index: 200;
+    left: 100%;
+    top: 0;
+    border: 0;
+    font-size: 22px;
+    width: 60px;
+    height: 60px;
+    line-height: 60px;
+    text-align: center;
+    background: none;
+    appearance: none;
+    cursor: pointer;
+    color: colors.$marine;
+}
+
+.main-menu {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    overflow: auto;
+}
+
+.menu-label {
+    text-transform: uppercase;
+    color: colors.$white;
+    font-size: 0.75em;
+    font-weight: 600;
+    padding: global.$pad math.div(global.$pad, 2) math.div(global.$pad, 4) math.div(global.$pad, 2);
+    border-bottom: 1px dotted rgba(colors.$snow, 0.25);
+}
+
+.menu-item {
+    margin: 0;
+    padding: 0;
+
+    &.menu-item-active {
+        .menu-link {
+            background-color: rgba(colors.$black, 0.25);
+            border-left: 2px solid colors.$tang;
+
+            i {
+                color: colors.$tang;
+            }
+        }
+    }
+}
+
+.menu-link {
+    display: block;
+    position: relative;
+    color: colors.$white;
+    text-decoration: none;
+    padding: math.div(global.$pad, 2) math.div(global.$pad, 2) math.div(global.$pad, 2) 42px;
+    transition: background-color 0.25s ease;
+    border-left: 2px solid colors.$marine;
+
+    i {
+        position: absolute;
+        left: 12px;
+        top: 50%;
+        transform: translateY(-50%);
+        font-size: 1.2em;
+        margin-right: 12px;
+        color: colors.$teal;
+    }
+
+    &:hover {
+        background-color: rgba(colors.$black, 0.25);
+    }
+}
+
+@include mixins.respond(lg) {
+    .main-nav {
+        width: 260px;
+    }
+
+    .menu-toggle {
+        display: none;
+    }
+
+    .side-head {
+        padding: math.div(global.$pad, 2) global.$pad;
+        width: 260px;
+    }
+
+    .menu-label {
+        padding: global.$pad global.$pad math.div(global.$pad, 2) global.$pad;
+    }
+
+    .menu-link {
+        padding: math.div(global.$pad, 2) global.$pad math.div(global.$pad, 2) 54px;
+
+        i {
+            left: 22px;
+        }
+    }
+}
+
+// @include mixins.respond(xl) {
+
+// }
+
+@include mixins.respond(md) {
+    .main-nav {
+        transform: translateX(-100%);
+
+        i.icon-x {
+            display: none;
+        }
+
+        &.menu-open {
+            transform: translateX(0);
+
+            i.icon-x {
+                display: inline-block;
+            }
+
+            i.icon-menu {
+                display: none;
+            }
+        }
+    }
+}
+
+@include mixins.respond(sm) {
+    .main-nav {
+        transform: translateX(-100%);
+
+        i.icon-x {
+            display: none;
+        }
+
+        &.menu-open {
+            transform: translateX(0);
+
+            i.icon-x {
+                display: inline-block;
+            }
+
+            i.icon-menu {
+                display: none;
+            }
+        }
+    }
+}

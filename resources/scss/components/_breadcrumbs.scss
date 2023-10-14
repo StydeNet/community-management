@@ -1,0 +1,57 @@
+// Component name
+@use "../variables/global";
+@use "../variables/colors";
+@use "../mixins";
+@use "sass:math";
+
+.breadcrumbs {
+    margin: 0 0 2em 0;
+    padding: math.div(global.$pad, 3), 0;
+}
+
+.breadcrumb-list {
+    margin: 0 0 2em 0;
+    padding: 0;
+    list-style: none;
+    display: flex;
+}
+
+.breadcrumb-item {
+    padding: 0 6px 0 0;
+
+    &::after {
+        content: " /";
+        color: colors.$steel;
+    }
+
+    &:last-child {
+        &::after {
+            content: "";
+        }
+    }
+    
+    a {
+        color: colors.$brick;
+        text-decoration: none;
+    }
+
+    span {
+        color: colors.$steel;
+    }
+}
+
+// @include mixins.respond(lg) {
+
+// }
+
+// @include mixins.respond(xl) {
+
+// }
+
+// @include mixins.respond(md) {
+
+// }
+
+// @include mixins.respond(sm) {
+
+// }

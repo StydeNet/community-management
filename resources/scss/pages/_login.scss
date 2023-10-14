@@ -1,0 +1,23 @@
+// Login page
+@use "../variables/global";
+@use "../variables/colors";
+@use "../mixins";
+@use "sass:math";
+
+.main-login {
+    height: calc(100vh - 60px);
+    padding-bottom: 10vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    h1 {
+        margin-bottom: 0.5em;
+        text-align: center;
+    }
+}
+
+.login-box {
+    max-width: 420px;
+    flex: 1 0 auto;
+}

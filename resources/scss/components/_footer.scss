@@ -1,0 +1,32 @@
+// Header
+@use "../variables/global";
+@use "../variables/colors";
+@use "../mixins";
+@use "sass:math";
+
+.main-foot {
+    padding: math.div(global.$pad, 2);
+    box-sizing: border-box;
+    height: 60px;
+    font-size: 0.9em;
+    color: colors.$steel;
+}
+
+
+@include mixins.respond(lg) {
+    .main-foot {
+        padding: math.div(global.$pad, 2) global.$pad;
+    }
+}
+
+// @include mixins.respond(xl) {
+
+// }
+
+// @include mixins.respond(md) {
+
+// }
+
+// @include mixins.respond(sm) {
+
+// }

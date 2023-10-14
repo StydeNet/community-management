@@ -1,0 +1,121 @@
+// Card
+@use "../variables/global";
+@use "../variables/colors";
+@use "../mixins";
+@use "sass:math";
+
+.card {
+    margin: 0 0 global.$pad 0;
+    background-color: colors.$white;
+    border-radius: 6px;
+    box-shadow: 2px 2px 3px rgba(colors.$alum, 0.5);
+    flex: 1 1 auto;
+    position: relative;
+    overflow: hidden;
+
+    .card-head {
+        padding: math.div(global.$pad, 2);
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+
+        .card-icon {
+            position: absolute;
+            top: -12px;
+            right: -12px;
+            font-size: 4em;
+            color: rgba(colors.$teal, 0.25);
+        }
+
+        .account-balance {
+            background-color: rgba(colors.$teal, 0.15);
+            padding: 8px 12px;
+            text-align: right;
+            border-radius: 4px;
+
+            span {
+                font-size: 1.2em;
+            }
+
+            p {
+                font-size: 0.8em;
+            }
+        }
+    }
+
+    .card-cont {
+        padding: math.div(global.$pad, 2);
+    }
+
+    .card-error {
+        width: 100%;
+        height: 120px;
+        background-color: mix(colors.$white, colors.$brick, 90%);
+        color: colors.$brick;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border-radius: 4px;
+        font-weight: 700;
+    }
+}
+
+@include mixins.respond(lg) {
+    .card {
+        margin: 0 math.div(global.$pad, 2) global.$pad math.div(global.$pad, 2);
+
+        &:first-child {
+            margin-left: 0;
+        }
+    
+        &:last-child {
+            margin-right: 0;
+        }
+
+        .card-head {
+            padding: math.div(global.$pad, 2) global.$pad;
+        }
+    
+        .card-cont {
+            padding: math.div(global.$pad, 2) global.$pad global.$pad global.$pad;
+
+            &:only-child {
+                padding: global.$pad;
+            }
+        }
+    }
+}
+
+// @include mixins.respond(xl) {
+
+// }
+
+@include mixins.respond(md) {
+    .card {
+        margin: 0 math.div(global.$pad, 2) global.$pad math.div(global.$pad, 2);
+
+        &:first-child {
+            margin-left: 0;
+        }
+    
+        &:last-child {
+            margin-right: 0;
+        }
+
+        .card-head {
+            padding: math.div(global.$pad, 2) global.$pad;
+        }
+    
+        .card-cont {
+            padding: math.div(global.$pad, 2) global.$pad global.$pad global.$pad;
+
+            &:only-child {
+                padding: global.$pad;
+            }
+        }
+    }
+}
+
+// @include mixins.respond(sm) {
+
+// }

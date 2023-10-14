@@ -1,0 +1,103 @@
+// Tabs
+@use "../variables/global";
+@use "../variables/colors";
+@use "../mixins";
+@use "sass:math";
+
+.tabs {
+    width: 100%;
+
+    .tab-panel:first-child .card {
+        border-top-left-radius: 0;
+    }
+}
+
+.tab-panel {
+    display: none;
+    
+    .card-head {
+        padding-top: 24px;
+
+        h2 {
+            flex-grow: 1;
+            padding-bottom: 12px;
+            border-bottom: 1px dotted colors.$alum;
+        }
+    }
+
+    &.tab-panel-active {
+        display: block;
+    }
+}
+
+.tab-links {
+    display: flex;
+    justify-content: flex-start;
+}
+
+.tab-button {
+    appearance: none;
+    display: block;
+    text-decoration: none;
+    border: 0;
+    padding: math.div(global.$pad, 2) global.$pad;
+    font-family: global.$body-font;
+    font-size: 1em;
+    font-weight: 600;
+    height: auto;
+    background-color: colors.$snow;
+    border-radius: 6px 6px 0 0;
+    margin: 0 4px 0 0;
+    cursor: pointer;
+    transition: background 0.15s ease;
+
+    &.tab-button-active {
+        background-color: colors.$white;
+        border-top: 2px solid colors.$tang;
+        color: colors.$marine;
+    }
+
+    &:hover {
+        background-color: colors.$white;
+        color: colors.$marine;
+    }
+}
+
+// @include mixins.respond(lg) {
+
+// }
+
+// @include mixins.respond(xl) {
+
+// }
+
+// @include mixins.respond(md) {
+
+// }
+
+@include mixins.respond(sm) {
+    .tabs {
+        width: 100%;
+
+        .tab-panel:first-child .card {
+            border-top-left-radius: 6px;
+        }
+    }
+
+    .tab-links {
+        flex-direction: column;
+        margin-left: -12px;
+    }
+
+    .tab-button {
+        margin: 0 0 4px 0;
+        border-radius: 0 4px 4px 0;
+
+        &.tab-button-active {
+            background-color: colors.$white;
+            border-top: 0;
+            border-right: 2px solid colors.$tang;
+            color: colors.$marine;
+        }
+    }
+}

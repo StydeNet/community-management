@@ -1,0 +1,113 @@
+// Typography
+@use "../variables/global";
+@use "../variables/colors";
+@use "../mixins";
+@use "sass:math";
+
+h1 {
+    margin: 0;
+    font-size: 2em;
+}
+
+h2 {
+    font-size: 1.4em;
+    margin: 0;
+    color: colors.$marine;
+}
+
+h3 {
+    font-size: 1.2em;
+    margin: 0;
+    color: colors.$teal;
+}
+
+p {
+    margin: 0 0 1em 0;
+
+    &:last-child {
+        margin: 0;
+    }
+}
+
+a {
+    color: colors.$brick;
+
+    &[href*="mailto"] {
+        margin-left: 4px;
+
+        &::before {
+            content: "\e92f";
+            font-family: "icomoon";
+            font-size: 12px;
+            display: inline-block;
+            padding-right: 4px;
+            text-decoration: none;
+        }
+    }
+
+    &[target="_blank"] {
+        margin-left: 4px;
+
+        &::before {
+            content: "\e92c";
+            font-family: "icomoon";
+            font-size: 12px;
+            display: inline-block;
+            padding-right: 4px;
+            text-decoration: none;
+        }
+    }
+
+    &[href*="tel"] {
+        margin-left: 4px;
+
+        &::before {
+            content: "\e93a";
+            font-family: "icomoon";
+            font-size: 12px;
+            display: inline-block;
+            padding-right: 4px;
+            text-decoration: none;
+        }
+    }
+}
+
+hr {
+    margin: global.$pad 0;
+    padding: 0;
+    border: 0;
+    border-bottom: 1px dotted colors.$alum;
+}
+
+.balance {
+    font-weight: 700;
+    display: block;
+    border-radius: 4px;
+    padding: 12px;
+    // font-size: 2em;
+
+    &.balance-due {
+        background-color: colors.$brick;
+        color: colors.$white;
+    }
+}
+
+.txt-r {
+    text-align: right;
+}
+
+// @include mixins.respond(lg) {
+
+// }
+
+// @include mixins.respond(xl) {
+
+// }
+
+// @include mixins.respond(md) {
+
+// }
+
+// @include mixins.respond(sm) {
+
+// }

@@ -1,0 +1,148 @@
+// Body styles
+@use "../variables/global";
+@use "../variables/colors";
+@use "../mixins";
+@use "sass:math";
+
+body {
+    background-color: colors.$snow;
+    font-family: global.$body-font;
+    font-weight: 300;
+    margin: 0;
+    font-size: 1em;
+
+    &.noscroll {
+        height: 100%;
+        width: 100%;
+        overflow: hidden;
+    }
+}
+
+.main-cont {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: math.div(global.$pad, 2);
+    box-sizing: border-box;
+}
+
+.stage {
+    padding-top: 60px;
+    transition: all 0.5s ease;
+    z-index: 1;
+}
+
+.menu-open + .stage {
+    filter: blur(3px);
+}
+
+img {
+    display: block;
+    max-width: 100%;
+    height: auto;
+}
+
+@include mixins.respond(lg) {
+    .app-wrap {
+        padding: 0 0 0 260px;
+    }
+
+    .main-cont {
+        padding: global.$pad;
+        min-height: calc(100vh - 120px);
+    }
+
+    .grid {
+        display: flex;
+    
+        &.lg-2 {
+            & > .card {
+                flex: 1 1 48%;
+            }
+        }
+    
+        &.lg-3 {
+            & > .card {
+                flex: 1 1 30%;
+            }
+        }
+
+        &.lg-66-33 {
+            .card:first-child {
+                flex: 1 1 65%;
+            }
+
+            .card:last-child {
+                flex: 1 1 31%;
+            }
+        }
+
+        &.lg-33-66 {
+            .card:first-child {
+                flex: 1 1 31%;
+            }
+
+            .card:last-child {
+                flex: 1 1 65%;
+            }
+        }
+    }
+}
+
+.hidden {
+    opacity: 0;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    z-index: -10;
+}
+
+// @include mixins.respond(xl) {
+
+// }
+
+@include mixins.respond(md) {
+    .main-cont {
+        padding: global.$pad;
+        min-height: calc(100vh - 120px);
+    }
+
+    .grid {
+        display: flex;
+    
+        &.md-2 {
+            & > .card {
+                flex: 1 1 48%;
+            }
+        }
+    
+        &.md-3 {
+            & > .card {
+                flex: 1 1 30%;
+            }
+        }
+
+        &.md-66-33 {
+            .card:first-child {
+                flex: 1 1 65%;
+            }
+
+            .card:last-child {
+                flex: 1 1 31%;
+            }
+        }
+
+        &.md-33-66 {
+            .card:first-child {
+                flex: 1 1 31%;
+            }
+
+            .card:last-child {
+                flex: 1 1 65%;
+            }
+        }
+    }
+}
+
+// @include mixins.respond(sm) {
+
+// }

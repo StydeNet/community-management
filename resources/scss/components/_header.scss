@@ -1,0 +1,41 @@
+// Header
+@use "../variables/global";
+@use "../variables/colors";
+@use "../mixins";
+@use "sass:math";
+
+.main-head {
+    background-color: colors.$white;
+    padding: math.div(global.$pad, 2);
+    box-sizing: border-box;
+    height: 60px;
+    box-shadow: 2px 2px 3px rgba(colors.$alum, 0.5);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: fixed;
+    z-index: 100;
+    left: 0;
+    top: 0;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+
+// @include mixins.respond(lg) {
+
+// }
+
+// @include mixins.respond(xl) {
+
+// }
+
+// @include mixins.respond(md) {
+
+// }
+
+@include mixins.respond(sm) {
+    .main-head {
+        padding-left: 72px;
+    }
+}

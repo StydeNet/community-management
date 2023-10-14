@@ -1,0 +1,80 @@
+// Element name
+@use "../variables/global";
+@use "../variables/colors";
+@use "../mixins";
+@use "sass:math";
+
+.btn {
+    display: inline-block;
+    appearance: none;
+    padding: math.div(global.$pad, 4) global.$pad;
+    text-decoration: none;
+    border-radius: 4px;
+    transition: background-color 0.25s ease;
+    background-color: colors.$white;
+    background-image: none;
+    color: colors.$brick;
+    font-weight: 700;
+    font-size: 0.96em;
+    cursor: pointer;
+    border: 1px solid colors.$brick;
+    outline: 0;
+
+    &:hover {
+        background-color: colors.$tang;
+        color: colors.$black;
+    }
+
+    &:focus {
+        box-shadow: 0 0 0 3px rgba(colors.$tang, 0.75);
+    }
+}
+
+.btn-cta {
+    background-color: colors.$brick;
+    color: colors.$white;
+    padding: math.div(global.$pad, 2) global.$pad;
+    font-size: 1.15em;
+
+    &:hover {
+        color: colors.$black;
+    }
+}
+
+.btn-action {
+    display: inline-block;
+    padding: 4px;
+    border-radius: 24px;
+    height: 24px;
+    width: 24px;
+    line-height: 24px;
+    background-color: colors.$snow;
+    text-align: center;
+    font-size: 16px;
+    text-decoration: none;
+
+    &:hover {
+        background-color: colors.$brick;
+        color: colors.$white;
+    }
+
+    &:focus-visible {
+        outline: 2px solid colors.$black;
+    }
+}
+
+// @include mixins.respond(lg) {
+
+// }
+
+// @include mixins.respond(xl) {
+
+// }
+
+// @include mixins.respond(md) {
+
+// }
+
+// @include mixins.respond(sm) {
+
+// }

@@ -1,0 +1,48 @@
+// Component name
+@use "../variables/global";
+@use "../variables/colors";
+@use "../mixins";
+@use "sass:math";
+
+.announcement {
+    padding: global.$pad 0;
+    border-bottom: 1px dotted colors.$alum;
+
+    &:last-child {
+        border: 0;
+    }
+}
+
+.announcement-head {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: math.div(global.$pad, 2);
+
+    .badge-LOW {
+        display: none;
+    }
+}
+
+.announcement-cont {
+    time {
+        display: block;
+        color: colors.$steel;
+        margin-bottom: math.div(global.$pad, 2);
+    }
+}
+
+// @include mixins.respond(lg) {
+
+// }
+
+// @include mixins.respond(xl) {
+
+// }
+
+// @include mixins.respond(md) {
+
+// }
+
+// @include mixins.respond(sm) {
+
+// }

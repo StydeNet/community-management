@@ -1,0 +1,94 @@
+// *
+// * Mixins
+// * Define mixins to be used across the project
+// *
+@use "variables/global";
+
+// For all mixins please add 
+// * @use "mixins";
+
+///* 
+// * Respond
+// * @param $breakpoint (sm | md | md-up | md-dn | lg | xl);
+// *
+// * @include mixins.respond(md) {
+// *     .selector {
+// *         property: value;
+// *     }
+// * }
+// */
+@mixin respond($bp) {
+    @if $bp == 'sm' {
+        @media (max-width: global.$bp-s) {
+            @content;
+        }
+    }
+    @else if $bp == 'md' {
+        @media (min-width: global.$bp-s) and (max-width: (global.$bp-l - 1)) {
+            @content;
+        }
+    }
+    @else if $bp == 'md-up' {
+        @media (min-width: global.$bp-s) {
+            @content;
+        }
+    }
+    @else if $bp == 'md-dn' {
+        @media (max-width: (global.$bp-m - 1)) {
+            @content;
+        }
+    }
+    @else if $bp == 'lg' {
+        @media (min-width: global.$bp-l) {
+            @content;
+        }
+    }
+    @else if $bp == 'xl' {
+        @media (min-width: global.$bp-xl) {
+            @content;
+        }
+    }
+}
+
+///* 
+// * Two colors linear gradient
+// * @param $value ($direction);
+// * @param $value ($initial-color);
+// * @param $value ($final-color);
+// *
+// * @include mixins.gradient(180deg, #ff0, #f00);
+// */
+@mixin gradient($direction: 90deg, $from, $to) {
+    background-color: $from;
+    background-image: linear-gradient($direction, $from 0%, $to 100%);
+}
+
+///*
+// * Placeholder text color
+// * @param $color ($color);
+// *
+// * @include placeholder(#999);
+// */
+@mixin placeholder($color) {
+    &::-webkit-input-placeholder {
+        color: $color;
+    }
+
+    &::-moz-placeholder {
+        color: $color; 
+    }
+
+    &::-ms-input-placeholder {
+        color: $color;
+    }
+}
+
+///*
+// * Disallow user selection
+// *
+// * @include noselect;
+// */
+@mixin noselect {
+    -webkit-touch-callout: none;
+    @include prefixer(user-select, none, webkit ms);
+}
