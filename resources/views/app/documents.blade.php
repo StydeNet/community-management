@@ -30,7 +30,7 @@
                         <tr>
                             <td>September</td>
                             <td>01/07/2022</td>
-                            <td class="td-right"><a href="/documents/statements/Statement-09-22.pdf" class="btn" download><i class="icon-file-text"></i> Download</a></td>
+                            <td class="td-right"><a href="" class="btn" download><i class="icon-file-text"></i> Download</a></td>
                         </tr>
                     </tbody>
                 </table>
@@ -41,7 +41,7 @@
    <div class="grid">
         <div class="card">
             <header class="card-head">
-                <h2>HOA Documents</h2>
+                <h2>Documents</h2>
             </header>
 
             <div class="card-cont">
@@ -55,7 +55,7 @@
                     <tbody>
                         <tr>
                             <td>Insurance certificate</td>
-                            <td class="td-right"><a href="/documents/statements/Statement-09-22.pdf" class="btn" download><i class="icon-file-text"></i> Download</a></td>
+                            <td class="td-right"><a href="" class="btn" download><i class="icon-file-text"></i> Download</a></td>
                         </tr>
                     </tbody>
                 </table>
